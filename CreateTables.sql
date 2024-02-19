@@ -48,7 +48,6 @@ CREATE TABLE [dbo].[UniversityFundRequest](
     [DateCreated] [date] DEFAULT GETDATE(),
     [Amount] [money] NOT NULL,
     [StatusID] [int] FOREIGN KEY REFERENCES [dbo].[Status](ID),
-    -- The person applying for fund 
     [Comment] [varchar](255)
 )
 GO
@@ -119,9 +118,7 @@ CREATE TABLE [dbo].[StudentFundRequest] (
     [Amount] [money] NOT NULL,
     [CreatedDate] [date] DEFAULT GETDATE(),
     [ModifiedDate] [date] DEFAULT GETDATE(),
-    --1. Approved 2. Rejected 3. Pending
     [StatusID] [int] FOREIGN KEY REFERENCES [dbo].[Status],
-    --Comment for rejection   
     [Comment] [varchar](255) NOT NULL,
     [StudentID] [int] FOREIGN KEY REFERENCES [dbo].[Student](ID)
 )
@@ -135,7 +132,6 @@ CREATE TABLE [dbo].[Document](
 )
 GO
 
---table for storing approved requests/ date and amount that was approved
 CREATE TABLE [dbo].[StudentFundAllocation](
     [ID] [int] IDENTITY(1, 1) PRIMARY KEY,
     [Amount] [money] NOT NULL,
