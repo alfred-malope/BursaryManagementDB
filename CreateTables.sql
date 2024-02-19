@@ -29,9 +29,9 @@ CREATE TABLE [dbo].[Role] (
 GO
 
 CREATE TABLE [dbo].[ContactDetails](
-	[ID] [int] Primary Key IDENTITY(1, 1) NOT NULL,
-	[Email] [varchar](255) NOT NULL,
-	[PhoneNumber] [varchar](13) NOT NULL,
+	[ID] [int] IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	[Email] [varchar](255) UNIQUE NOT NULL,
+	[PhoneNumber] [varchar](13) UNIQUE NOT NULL,
 )
 GO
 
